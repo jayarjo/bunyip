@@ -12,29 +12,34 @@ In order for bunyip to flex its real muscle I recommend you get a paid [BrowserS
 If you wish to test on devices that are not part of your local network you'll be required to setup a tunneling service. I recommend [pagekite](https://pagekite.net/support/quickstart/) as it gives you a nice free chunk of data and allows you to specify a reusable subdomain. [Showoff.io](https://showoff.io/) is another good option.
 
 ### Setup the config.js file
-If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the lib folder you'll see a `config-template.js` file, copy it and rename to config.js. Edit the values to whatever you need it to be.
+If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the bunyip package folder you'll see a `config-template.json` file, copy it and rename to config.json. Edit the values to whatever you need it to be. After that you can leave it under the package root folder or move to whatever place is more convenient to you. In the latter case you can invoke pass custom config.json path to bunyip via a -c, like this:
 
-```js
-var config = config || {};
-
-config.browserstack = {
-	username: "foo", // Your BrowserStack username
-	password: "bar", // Your BrowserStack password
-	version: 2
-};
-
-// The tunneling service I use is https://pagekite.net/support/quickstart/ 
-// You can easily use another service lke showoff.io only requirement is that you can specify a fixed url name
-config.port = " 9000 ";
-config.tunnellink = "bunyip.pagekite.me/"; // The subdomain that the tunnel can be access by
-// This is the command that nodejs will execute using child_process.exec
-// If you were using showoff.io the below command would be "show" + config.port
-config.tunnel = "pagekite.py" + config.port + config.tunnellink;
-
-module.exports = config;
+```bash
+bunyip -c /path/to/custom/config.json <...other options...>
 ```
 
-_(Can this be done in an easier fashion? Do a pull request!)_
+```js
+{
+	"browserstack" : {
+		"username" : "ahrjay",
+		"password" : "Redrumizr",
+		"version" : 2,
+		"timeout": 480
+	},
+
+	// The tunneling service I use is https://pagekite.net/support/quickstart/ 
+	// You can easily use another service lke showoff.io only requirement is that you can specify a fixed url name
+
+	"tunnel" : {
+		"port": 9000,
+		"url": "bunyip.pagekite.me/",
+
+		// If set, nodejs will execute it using child_process.exec, automatically appending 'port' and 'url' values
+		// If you were using showoff.io the below command would be "show"
+		"cmd": "pagekite.py"
+	}
+}
+
 
 ## Test suite adaptors
 
@@ -49,6 +54,11 @@ bunyip -f index.html
 ```
 
 The above command will launch a simple Yeti hub on port 9000 and use the `index.html` inside your current working directory.
+
+```bash
+bunyip -c ~/config.json -f index.html
+```
+This will try to load config.json from user's home directory (*nix)
 
 ```bash
 bunyip -f index.html -p 1337
