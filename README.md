@@ -15,7 +15,7 @@ If you wish to test on devices that are not part of your local network you'll be
 If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the bunyip package folder you'll see a `config-template.json` file, copy it and rename to config.json. Edit the values to whatever you need it to be. After that you can leave it under the package root folder or move to whatever place is more convenient to you. In the latter case you can invoke pass custom config.json path to bunyip via a -c, like this:
 
 ```bash
-bunyip -c /path/to/custom/config.json <...other options...>
+bunyip -c /path/to/custom/config.json -f index.html
 ```
 
 ```js
@@ -39,6 +39,7 @@ bunyip -c /path/to/custom/config.json <...other options...>
 		"cmd": "pagekite.py"
 	}
 }
+```
 
 
 ## Test suite adaptors
