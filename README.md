@@ -12,31 +12,27 @@ In order for bunyip to flex its real muscle I recommend you get a paid [BrowserS
 If you wish to test on devices that are not part of your local network you'll be required to setup a tunneling service. I recommend [pagekite](https://pagekite.net/support/quickstart/) as it gives you a nice free chunk of data and allows you to specify a reusable subdomain. [Showoff.io](https://showoff.io/) is another good option.
 
 ### Setup the config.js file
-If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the bunyip package folder you'll see a `config-template.json` file, copy it and rename to config.json. Edit the values to whatever you need it to be. After that you can leave it under the package folder or move to whatever place is more convenient to you. In the latter case you will be able to invoke bunyip with custom config via -c option, like this:
+If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the bunyip package folder you'll see a `config.json` file. Edit the values to whatever you need it to be. After that you can leave it under the package folder or move to whatever place is more convenient to you. In the latter case you will be able to invoke bunyip with custom config via -c option, like this:
 
 ```bash
-bunyip -c /path/to/custom/config.json -f index.html
+bunyip -c /path/to/custom/config.json index.html
 ```
 
 ```js
 {
-	"browserstack" : {
-		"username" : "ahrjay",
-		"password" : "Redrumizr",
-		"version" : 2,
-		"timeout": 480
+	"hub": "localhost",
+	"port": 9000,
+	"timeout": 480,
+	"loglevel": "silent",
+
+	"browserstack": {
+		"username": "ahrjay",
+		"password": "Redrumizr",
+		"version": 2
 	},
-
-	// The tunneling service I use is https://pagekite.net/support/quickstart/ 
-	// You can easily use another service lke showoff.io only requirement is that you can specify a fixed url name
-
-	"tunnel" : {
-		"port": 9000,
-		"url": "bunyip.pagekite.me/",
-
-		// If set, nodejs will execute it using child_process.exec, automatically appending 'port' and 'url' values
-		// If you were using showoff.io the below command would be "show"
-		"cmd": "pagekite.py"
+	"tunnel": {
+		"url": "bunyip.pagekite.me",
+		"cmd": "pagekite.py <port> <url>"
 	}
 }
 ```
@@ -51,18 +47,18 @@ If you use another client-side testsuite please feel free to contribute it to my
 ## Examples
 
 ```bash
-bunyip -f index.html
+bunyip index.html
 ```
 
 The above command will launch a simple Yeti hub on port 9000 and use the `index.html` inside your current working directory.
 
 ```bash
-bunyip -c ~/config.json -f index.html
+bunyip -c ~/config.json index.html
 ```
 This will try to load config.json from user's home directory (*nix)
 
 ```bash
-bunyip -f index.html -p 1337
+bunyip -p 1337 index.html
 ```
 
 This will change the port that is used. The global config value will be updated for you so don't worry.
@@ -70,7 +66,7 @@ This will change the port that is used. The global config value will be updated 
 ### BrowserStack workers
 
 ```bash
-bunyip -f index.html -b ios
+bunyip -b ios index.html
 ```
 
 Assuming you have a BrowserStack paid account and have setup a localhost sharing service the `-b ios` will send off a command to launch all iOS devices (3 iPhones and 3 iPads) on BrowserStack and once they're connected you can run your test suite.
