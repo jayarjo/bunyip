@@ -11,6 +11,7 @@
 	},
 	"tunnel": {
 		"url": "bunyip.pagekite.me",
-		"cmd": "pagekite.py <port> <url>"
+		"secret": "greatsecret",
+		"cmd": "pagekite.py --defaults --backend=http:<url>:localhost:<port>:<secret>"
 	}
 }
