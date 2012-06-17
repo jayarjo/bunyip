@@ -1,0 +1,16 @@
+{
+	"hub": "localhost",
+	"port": 9000,
+	"timeout": 480,
+	"loglevel": "silent",
+
+	"browserstack": {
+		"username": "ahrjay",
+		"password": "Redrumizr",
+		"version": 2
+	},
+	"tunnel": {
+		"url": "bunyip.pagekite.me",
+		"cmd": "pagekite.py <port> <url>"
+	}
+}
