@@ -26,8 +26,8 @@ bunyip -c /path/to/custom/config.json index.html
 	"loglevel": "silent",
 
 	"browserstack": {
-		"username": "ahrjay",
-		"password": "Redrumizr",
+		"username": "user",
+		"password": "pass",
 		"version": 2
 	},
 	"tunnel": {
