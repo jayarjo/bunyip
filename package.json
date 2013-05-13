@@ -1,17 +1,12 @@
 {
   "name": "bunyip",
   "description": "Automate client-side unit testing in real browsers using the cli",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "homepage": "http://ryanseddon.github.com/bunyip",
   "author": {
     "name": "Ryan Seddon",
     "url": "http://www.thecssninja.com/"
   },
-  "contributors": [ 
-    {
-      "name": "Davit Barbakadze"
-    }
-  ],
   "repository": {
     "type": "git",
     "url": "git://github.com:ryanseddon/bunyip.git"
@@ -30,14 +25,18 @@
     "bunyip": "./cli.js"
   },
   "engines": {
-    "node": ">=0.6.18"
+    "node": ">=0.8"
   },
   "scripts": {
     "test": "vows test/*.js"
   },
   "dependencies": {
     "browserstack": "0.2.x",
+    "wd": "0.0.x",
+    "request": "2.21.x",
+    "q": "0.9.x",
     "commander": "0.6.x",
+    "keypress": "0.1.x",
 	  "yeti": "0.2.x",
     "async": "0.2.x",
     "range_check": "0.0.x"
