@@ -1,3 +1,6 @@
 #!/usr/bin/env node
-var program = require('./lib/options');
-require("./lib/bunyip").route(program);
+var getConfig = require('./lib/options');
+
+getConfig(function(config) {
+	require('./lib/bunyip').route(config);
+});
