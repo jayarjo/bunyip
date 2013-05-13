@@ -1,15 +1,7 @@
 module.exports = {
-	tester: 'yeti', // e.g. yeti or testswarm
+	  hub: "http://localhost:9000"
 
-	yeti: {
-		url: "http://localhost:9000",
-		loglevel: 'silent'
-	},
-
-	browserstack: {
-		username: "USERNAME",
-		password: "PASSWORD",
-		version: 2,
-		timeout: 480
-	}
+	, farm: "saucelabs"
+	//, user: "USERNAME"
+	//, pass: "ACCESSKEY"
 };
