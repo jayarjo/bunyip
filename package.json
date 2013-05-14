@@ -34,6 +34,7 @@
     "browserstack": "0.2.x",
     "wd": "0.0.x",
     "request": "2.21.x",
+    "zip": "1.1.x",
     "q": "0.9.x",
     "commander": "0.6.x",
     "keypress": "0.1.x",
