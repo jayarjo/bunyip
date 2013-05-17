@@ -31,7 +31,6 @@
     "test": "vows test/*.js"
   },
   "dependencies": {
-    "browserstack": "0.2.x",
     "wd": "0.0.x",
     "request": "2.21.x",
     "zip": "1.1.x",
