@@ -28,7 +28,7 @@
     "node": ">=0.8"
   },
   "scripts": {
-    "test": "vows test/*.js"
+    "test": "mocha --reporter spec --ui bdd test/*.js"
   },
   "dependencies": {
     "wd": "0.0.x",
@@ -42,9 +42,12 @@
     "range_check": "0.0.x"
   },
   "devDependencies": {
+    "mocha": "1.18.x",
+    "sinon": "1.9.x",
+    "chai": "1.9.x",
+    "chai-as-promised": "0.2.x",
+    "sinon-chai": "2.5.x",
     "grunt": "~0.3.9",
-    "cli-easy": "0.1.x",
-    "vows": ">= 0.5.8",
     "mockery": ">= 1.1.2"
   },
   "keywords": ["unit tests", "bunyip", "browserstack", "mobile", "cli"]
