@@ -37,7 +37,7 @@
     "q": "0.9.x",
     "commander": "0.6.x",
     "keypress": "0.1.x",
-	  "yeti": "0.2.x",
+	  "yeti": "https://github.com/jayarjo/yeti/tarball/master",
     "async": "0.2.x",
     "range_check": "0.0.x"
   },
