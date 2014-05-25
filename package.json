@@ -21,7 +21,6 @@
     }
   ],
   "main": "lib/bunyip",
-  "preferGlobal": "true",
   "bin": {
     "bunyip": "./cli.js"
   },
